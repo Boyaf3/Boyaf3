@@ -1,0 +1,208 @@
+<html>
+  <head>
+    <title>Boyaf3</title>
+    <script src="sweetalert2.min.js"></script>
+      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
+    <style>
+
+      body {
+        font-family: Arial, sans-serif;
+       alignment: left;
+      color: #ffffff;
+      background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #1C262B 100%);
+
+      }
+
+      form {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+
+
+      textarea {
+        font-size: 16px;
+  font-size: max(16px, 1em);
+  font-family: inherit;
+
+  background-color: #fff;
+  border: 2px solid #8b8a8b;
+  border-radius: 4px;
+  width: 1400px;
+  height: 720px;
+
+
+}
+ .css-input:focus {
+     outline:none;
+}
+
+
+      select {
+        width: 100%;
+        height: 40px;
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid #cccccc;
+        box-sizing: border-box;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+    button{
+        width: 150px;
+      padding: 10px;
+      border: none;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      background-color: #095484;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0666a3;
+      }
+      .loader {
+  position: absolute;
+  top: calc(50% - 32px);
+  left: calc(50% - 32px);
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  perspective: 800px;
+}
+
+.inner {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.inner.one {
+  left: 0%;
+  top: 0%;
+  animation: rotate-one 1s linear infinite;
+  border-bottom: 3px solid #EFEFFA;
+}
+
+.inner.two {
+  right: 0%;
+  top: 0%;
+  animation: rotate-two 1s linear infinite;
+  border-right: 3px solid #EFEFFA;
+}
+
+.inner.three {
+  right: 0%;
+  bottom: 0%;
+  animation: rotate-three 1s linear infinite;
+  border-top: 3px solid #EFEFFA;
+}
+
+@keyframes rotate-one {
+  0% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotate-two {
+  0% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotate-three {
+  0% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+}
+
+    </style>
+  </head>
+  <body onload="myFunction()">
+    <div class="loader" >
+        <div class="inner one"></div>
+        <div class="inner two"></div>
+        <div class="inner three"></div>
+      </div>
+    <form method="post" action="/" class="form" >
+        <h4>Your input:</h4>
+      <textarea id="text-area"name="textarea" rows="4" cols="50"></textarea >
+      <input type="text" name="htmlsoup" id="html"><br>
+      <label for="select-choice">Select Choice:</label><br>
+      <select id="select-choice" name="comp_select">
+        <option value="choose the correct answer?" >choose the correct answer?</option>
+        <option value="Order the sentences (B-G) below to make a story">Order the sentences (B-G) below to make a story</option>
+        <option value="complete the  story with this answers?">complete the  story with this answers?
+
+        </option>
+        <option value="None">None</option>
+      </select>
+    </br>
+</br><div class="btn-block">
+    <button type="submit">submit</button>
+  </div>
+
+    </form>
+    {% if  response %}
+        <article>{{ response }}</article>
+     <script>
+         Swal.fire({
+  position: 'top',
+  icon: 'success',
+  title: "{{response}}",
+  showConfirmButton: false,
+  timer: 30000
+})
+    document.getElementsByTagName("form").hidden = true
+
+     </script>
+
+
+        {% else %}
+         <script>
+     let b= document.querySelector(".loader");
+      let c = document.querySelector("form");
+  function myFunction() {
+   //showPage()
+
+  var myVar = setTimeout(gg, 1000);
+
+
+
+
+}
+
+function showPage() {
+
+ b.style.display = 'block';
+}
+function gg(){
+     //b.setAttribute("hidden",'')
+  // c.removeAttribute("hidden")
+    b.style.display = 'none';
+}
+
+
+        </script>
+
+    {% endif %}
+
+  </body>
+</html>
